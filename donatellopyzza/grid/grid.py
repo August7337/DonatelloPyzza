@@ -60,8 +60,8 @@ class Grid:
         elif action < 4:
             square_touched = self.map.touch(agent)
         #Mise a jour de la position courante
-        square = self.map.getAgentCell(agent)
-        agent.setCurrentPosition(square)
+        curr_square = self.map.getAgentCell(agent)
+        agent.setCurrentPosition(curr_square)
 
         if self.display:
             self.gui.update(self.map, self.colorSquares)

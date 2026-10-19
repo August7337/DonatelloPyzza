@@ -1,6 +1,6 @@
 from random import randint
 import sys, pygame
-import pkg_resources
+from pathlib import Path
 import math
 
 class GUI:
@@ -15,7 +15,7 @@ class GUI:
         self.disp = False
         self.colors = []
         #self.shadeColors = [] # to remove
-        path = pkg_resources.resource_filename(__name__, "../data/images/pizza.png")
+        path = str(Path(__file__).resolve().parent / "../data/images/pizza.png")
         self.pizza = pygame.image.load(path)
         for i in range(height * width):
             r = randint(15, 255)

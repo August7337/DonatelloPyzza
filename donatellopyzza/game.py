@@ -1,6 +1,11 @@
-from .turtleAgent import Turtle
-from .envBuilder import *
-from .enums import Action, Feedback
+try:
+    from .turtleAgent import Turtle
+    from .envBuilder import *
+    from .enums import Action, Feedback
+except (ImportError, ModuleNotFoundError):
+    from turtleAgent import Turtle
+    from envBuilder import *
+    from enums import Action, Feedback
 
 import warnings
 import random

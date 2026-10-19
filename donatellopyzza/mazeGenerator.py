@@ -5,13 +5,11 @@ Adapted by: Mickael Bettinelli - 2023
 
 from matplotlib import pyplot
 from matplotlib import colors
-from numpy.random import random_integers as rand
 import os, sys, inspect
-import pkg_resources
-from pkg_resources import resource_string
+from pathlib import Path
 from random import randint
 
-sys.path.insert(0, os.path.abspath('donatellopyzza/grid'))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "grid"))
 
 from constants import *
 
@@ -62,7 +60,7 @@ class Maze:
         f.close()
 
     def get_data_path(self, path, name):
-        return pkg_resources.resource_filename(__name__, path + name)
+        return str(Path(__file__).resolve().parent / (path + name))
 
     def save(self, maze, filename=None):
         #pyplot.figure(figsize=(10, 10))

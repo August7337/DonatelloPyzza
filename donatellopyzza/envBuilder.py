@@ -1,9 +1,7 @@
 import os, sys, inspect
-import pkg_resources
 from pathlib import Path
-from pkg_resources import resource_string
 
-sys.path.insert(0, os.path.abspath("donatellopyzza/grid/"))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "grid"))
 
 from grid import Grid
 from mazeParser import Parser
@@ -15,7 +13,7 @@ class EnvBuilder:
         self.gui = gui
 
     def get_data_path(self, path):
-        return pkg_resources.resource_filename(__name__, path + self.name)
+        return str(Path(__file__).resolve().parent / (path + self.name))
 
     def build_grid(self):
         data_path = self.get_data_path("data/environments/")
